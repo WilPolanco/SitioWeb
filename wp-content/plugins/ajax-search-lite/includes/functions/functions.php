@@ -478,6 +478,31 @@ if (!function_exists("wd_closetags")) {
 	}
 }
 
+if ( !function_exists('wpd_font') ) {
+    /**
+     * Helper method to be used before printing the font styles. Converts font families to apostrophed versions.
+     *
+     * @param $font
+     * @return mixed
+     */
+    function wpd_font($font) {
+        preg_match("/family:(.*?)$/", $font, $fonts);
+        if (isset($fonts[1])) {
+            $f = explode(',', stripslashes(str_replace(array('"', "'"), '', $fonts[1])) );
+            foreach ($f as &$_f) {
+                if (trim($_f) != 'inherit')
+                    $_f = '"' . trim($_f) . '"';
+                else
+                    $_f = trim($_f);
+            }
+            $f = implode(',', $f);
+            return preg_replace("/family:(.*?)$/", 'family:' . $f, $font);
+        } else {
+            return $font;
+        }
+    }
+}
+
 if (!function_exists("mysql_escape_mimic")) {
   function mysql_escape_mimic($inp) { 
       if(is_array($inp)) 

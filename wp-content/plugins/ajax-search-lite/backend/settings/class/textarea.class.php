@@ -15,7 +15,7 @@ if (!class_exists("wpdreamsTextarea")) {
         function getType() {
             parent::getType();
             echo "<label style='vertical-align: top;' for='wpdreamstextarea_" . self::$_instancenumber . "'>" . $this->label . "</label>";
-            echo "<textarea id='wpdreamstextarea_" . self::$_instancenumber . "' name='" . $this->name . "'>" . stripcslashes($this->data) . "</textarea>";
+            echo "<textarea id='wpdreamstextarea_" . self::$_instancenumber . "' name='" . $this->name . "'>" . stripslashes(esc_html($this->data)) . "</textarea>";
         }
     }
 }

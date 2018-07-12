@@ -1,24 +1,3 @@
-<?php
-$themes = array(
-    array('option'=>'Simple Red', 'value'=>'simple-red'),
-    array('option'=>'Simple Blue', 'value'=>'simple-blue'),
-    array('option'=>'Simple Grey', 'value'=>'simple-grey'),
-    array('option'=>'Classic Blue', 'value'=>'classic-blue'),
-    array('option'=>'Curvy Black', 'value'=>'curvy-black'),
-    array('option'=>'Curvy Red', 'value'=>'curvy-red'),
-    array('option'=>'Curvy Blue', 'value'=>'curvy-blue'),
-    array('option'=>'Underline White', 'value'=>'underline')
-);
-?>
-<div class="item">
-    <?php
-    $o = new wpdreamsCustomSelect("theme", __("Theme", "ajax-search-lite"), array(
-        'selects'=>$themes,
-        'value'=>$sd['theme']
-    ));
-    $params[$o->getName()] = $o->getData();
-    ?>
-</div>
 <div class="item">
     <?php
     $o = new wpdreamsYesNo("override_search_form", __("Try to replace the theme search with Ajax Search Lite form?", "ajax-search-lite"),

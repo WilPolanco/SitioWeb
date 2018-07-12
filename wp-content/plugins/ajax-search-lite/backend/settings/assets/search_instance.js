@@ -82,4 +82,39 @@ jQuery(function ($) {
             });
             $("select[name='"+v+"']").change();
         });
+
+    // Theme options
+    $('select[name=theme]').on('change', function(){
+        $('.asl_theme').removeClass().addClass('asl_theme asl_theme-' + $(this).val());
+    });
+    $('select[name=theme]').trigger('change');
+
+    $('input[name=override_bg]').on('change', function(){
+        if ( $(this).val() == 0 ) {
+            $('input[name=override_bg_color]').parent().addClass('disabled');
+        } else {
+            $('input[name=override_bg_color]').parent().removeClass('disabled');
+        }
+    });
+    $('input[name=override_bg]').trigger('change');
+
+    $('input[name=override_icon]').on('change', function(){
+        if ( $(this).val() == 0 ) {
+            $('input[name=override_icon_bg_color]').parent().addClass('disabled');
+            $('input[name=override_icon_color]').parent().addClass('disabled');
+        } else {
+            $('input[name=override_icon_bg_color]').parent().removeClass('disabled');
+            $('input[name=override_icon_color]').parent().removeClass('disabled');
+        }
+    });
+    $('input[name=override_icon]').trigger('change');
+
+    $('input[name=override_border]').on('change', function(){
+        if ( $(this).val() == 0 ) {
+            $('input[name=override_border_style]').closest('.wpdreamsBorder').addClass('disabled');
+        } else {
+            $('input[name=override_border_style]').closest('.wpdreamsBorder').removeClass('disabled');
+        }
+    });
+    $('input[name=override_border]').trigger('change');
 });

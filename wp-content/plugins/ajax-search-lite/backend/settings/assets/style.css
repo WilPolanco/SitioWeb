@@ -690,6 +690,8 @@ Generic classes
   border: 0;
 }
 
+.item-flex,
+.item-flex-nogrow,
 #wpdreams .item.item-flex,
 #wpdreams .item.item-flex-nogrow {
   display: flex;
@@ -1183,6 +1185,30 @@ Generic classes
   text-align:right;
 }
 
+#wpdreams .wpd_border_radius {
+  margin: 0;
+  border: 1px dotted #ececec;
+  padding: 0 0 5px 5px;
+}
+
+#wpdreams .wpd_border_radius legend {
+  font-size: 12px;
+  text-align: left;
+  padding: 0 !important;
+}
+
+#wpdreams .wpdreamsBorder .wpd_border_radius label {
+  line-height: 30px;
+  font-size: 11px;
+  display: inline-block;
+  width: 125px;
+}
+
+#wpdreams .wpdreamsBorder .wpd_border_radius input {
+  font-size: 11px;
+  height: 22px;
+}
+
 #wpdreams input.twodigit {
   width: 37px;
   text-align:right;
@@ -1200,6 +1226,45 @@ Generic classes
   height: 24px;
   margin: 0 auto;
   background: transparent url("icons/load24x24.gif") no-repeat center center;
+}
+
+#wpdreams .asl_theme {
+  width: 318px;
+  height: 53px;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+#wpdreams .asl_theme.asl_theme-curvy-red {
+  background-image: url('theme/curvy-red.png');
+}
+
+#wpdreams .asl_theme.asl_theme-curvy-blue {
+  background-image: url('theme/curvy-blue.png');
+}
+
+#wpdreams .asl_theme.asl_theme-curvy-black {
+  background-image: url('theme/curvy-black.png');
+}
+
+#wpdreams .asl_theme.asl_theme-classic-blue {
+  background-image: url('theme/classic-blue.png');
+}
+
+#wpdreams .asl_theme.asl_theme-simple-blue {
+  background-image: url('theme/simple-blue.png');
+}
+
+#wpdreams .asl_theme.asl_theme-simple-grey {
+  background-image: url('theme/simple-grey.png');
+}
+
+#wpdreams .asl_theme.asl_theme-simple-red {
+  background-image: url('theme/simple-red.png');
+}
+
+#wpdreams .asl_theme.asl_theme-underline {
+  background-image: url('theme/underline.png');
 }
 
 #wpdreams .wpdreamsThemeChooser span {

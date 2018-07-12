@@ -1713,42 +1713,51 @@ jQuery(function($){
     /**
      * Border chooser
      */
-    $('.wpdreamsBorder input[type=text], .wpdreamsBorder select').bind("change", function () {
-        var value = "";
-        var parent = $(this).parent();
-        while (parent.hasClass('wpdreamsBorder') != true) {
-            parent = $(parent).parent();
-        }
-        var width = $('input[name*="_xx_width_xx_"]', parent).val() + "px ";
-        var style = $('select[name*="_xx_style_xx_"]', parent).val() + " ";
-        var color = $('input[name*="_xx_color_xx_"]', parent).val() + ";";
-        var border = "border:" + width + style + color;
+    $('.wpdreamsBorder input[type=text], .wpdreamsBorder select').on("change", function () {
+        var parent = $(this).closest('.wpdreamsBorder');
 
-        var topleft = $.trim($('input[name*="_xx_topleft_xx_"]', parent).val()) + "px ";
-        var topright = $.trim($('input[name*="_xx_topright_xx_"]', parent).val()) + "px ";
-        var bottomright = $.trim($('input[name*="_xx_bottomright_xx_"]', parent).val()) + "px ";
-        var bottomleft = $.trim($('input[name*="_xx_bottomleft_xx_"]', parent).val()) + "px;";
-        var borderradius = "border-radius:" + topleft + topright + bottomright + bottomleft;
+        var w = $.trim( parent.find('input._xx_width_xx_').val() ) + "px ";
+        var s = $.trim( parent.find('select._xx_style_xx_').val() ) + " ";
+        var c = $.trim( parent.find('input.color').val() ) + ";";
+        var border = "border:" + w + s + c;
+
+        var tl = $.trim( parent.find('input._xx_topleft_xx_').val() ) + "px ";
+        var tr = $.trim( parent.find('input._xx_topright_xx_').val() ) + "px ";
+        var br = $.trim( parent.find('input._xx_bottomright_xx_').val() ) + "px ";
+        var bl = $.trim( parent.find('input._xx_bottomleft_xx_').val() ) + "px;";
+        var borderradius = "border-radius:" + tl + tr + br + bl;
 
         var value = border + borderradius;
 
-        $('input[type=hidden]', parent).val(value);
-        $('input[type=hidden]', parent).change();
+        $('input[type=hidden]', parent).val(value).trigger('change');
     });
-    $('.wpdreamsBorder>fieldset>.triggerer').bind('click', function () {
-        var parent = $(this).parent();
-        var hidden = $("input[type=hidden]", parent);
+    $('.wpdreamsBorder select').on('change', function(){
+        var parent = $(this).closest('.wpdreamsBorder');
+        if( $(this).val() == 'none' ) {
+            parent.find('.wpd_br_to_disable').addClass('disabled');
+        } else {
+            parent.find('.wpd_br_to_disable').removeClass('disabled');
+        }
+    });
+    $('.wpdreamsBorder select').trigger('change');
+    $('.wpdreamsBorder>.triggerer').bind('click', function () {
+        var parent = $(this).closest('.wpdreamsBorder');
+        var hidden = parent.find("input[type=hidden]");
+
         var border = hidden.val().replace(/(\r\n|\n|\r)/gm, "").match(/border:(.*?)px (.*?) (.*?);/);
-        $('input[name*="_xx_width_xx_"]', parent).val(border[1]);
-        $('select[name*="_xx_style_xx_"]', parent).val(border[2]);
-        $('input[name*="_xx_color_xx_"]', parent).val(border[3]);
+        parent.find('input._xx_width_xx_').val(border[1]);
+        parent.find('input.color').val(border[3]);
 
         var borderradius = hidden.val().replace(/(\r\n|\n|\r)/gm, "").match(/border-radius:(.*?)px(.*?)px(.*?)px(.*?)px;/);
-        $('input[name*="_xx_topleft_xx_"]', parent).val(borderradius[1]);
-        $('input[name*="_xx_topright_xx_"]', parent).val(borderradius[2]);
-        $('input[name*="_xx_bottomright_xx_"]', parent).val(borderradius[3]);
-        $('input[name*="_xx_bottomleft_xx_"]', parent).val(borderradius[4]);
-        $('input[name*="_xx_color_xx_"]', parent).spectrum('set', border[3]);
+        parent.find('input._xx_topleft_xx_').val(borderradius[1]);
+        parent.find('input._xx_topright_xx_').val(borderradius[2]);
+        parent.find('input._xx_bottomright_xx_').val(borderradius[3]);
+        parent.find('input._xx_bottomleft_xx_').val(borderradius[4]);
+        parent.find('select._xx_style_xx_').val(border[2]);
+        parent.find('input.color').spectrum('set', border[3]);
+
+        // Separate trigger! otherwise the loaded value is overridden
+        parent.find('select._xx_style_xx_').trigger('change');
     });
 
     /**

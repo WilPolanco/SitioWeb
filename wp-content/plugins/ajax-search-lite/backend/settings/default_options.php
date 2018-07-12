@@ -157,6 +157,14 @@ function asl_do_init_options() {
         // Box layout
         'box_width' => "100%",
         'box_margin' => "||0px||0px||0px||0px||",
+        'box_font' => 'Open Sans',
+        'override_bg' => 0,
+        'override_bg_color' => '#FFFFFF',
+        'override_icon' => 0,
+        'override_icon_bg_color' => '#FFFFFF',
+        'override_icon_color' => '#000000',
+        'override_border' => 0,
+        'override_border_style' => 'border:1px none rgb(0, 0, 0);border-radius:0px 0px 0px 0px;',
         // Results Layout
         'resultstype_def' => array(
             array('option' => 'Vertical Results', 'value' => 'vertical'),
@@ -176,7 +184,6 @@ function asl_do_init_options() {
         'defaultsearchtext' => 'Search here..',
         'showmoreresults' => 0,
         'showmoreresultstext' => 'More results...',
-        'showmorefont' => 'font-weight:normal;font-family:--g--Open Sans;color:rgba(5, 94, 148, 1);font-size:12px;line-height:15px;text-shadow:0px 0px 0px rgba(255, 255, 255, 0);',
         'results_click_blank' => 0,
         'scroll_to_results' => 0,
         'resultareaclickable' => 1,

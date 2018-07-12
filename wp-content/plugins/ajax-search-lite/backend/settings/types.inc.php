@@ -13,6 +13,7 @@ defined('ABSPATH') or die("You can't access this file directly.");
 
 // Include the types
 include('class/type.class.php');
+include('class/border.class.php');
 include('class/categories.class.php');
 include('class/colorpicker.class.php');
 include('class/colorpickerdummy.class.php');

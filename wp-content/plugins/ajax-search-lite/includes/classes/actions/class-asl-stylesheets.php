@@ -84,6 +84,48 @@ if (!class_exists("WD_ASL_StyleSheets_Action")) {
                 max-height: ". $asl_options['v_res_max_height'] .";
             }
             ";
+            if ( trim($asl_options['box_font']) != '' && $asl_options['box_font'] != 'Open Sans' ) {
+                $ffamily = wpd_font('font-family:'.$asl_options['box_font'])." !important;";
+                self::$inline_css .= "
+                .asl_w, .asl_w * {".$ffamily."}
+                .asl_m input[type=search]::placeholder{".$ffamily."}
+                .asl_m input[type=search]::-webkit-input-placeholder{".$ffamily."}
+                .asl_m input[type=search]::-moz-placeholder{".$ffamily."}
+                .asl_m input[type=search]:-ms-input-placeholder{".$ffamily."}
+                ";
+            }
+            if ( $asl_options['override_bg'] == 1 ) {
+                self::$inline_css .= "
+                .asl_m, .asl_m .probox {
+                    background-color: ".$asl_options['override_bg_color']." !important;
+                    background-image: none !important;
+                    -webkit-background-image: none !important;
+                    -ms-background-image: none !important;
+                }
+                ";
+            }
+            if ( $asl_options['override_icon'] == 1 ) {
+                self::$inline_css .= "
+                .asl_m .probox svg {
+                    fill: ".$asl_options['override_icon_color']." !important;
+                }
+                .asl_m .probox .innericon {
+                    background-color: ".$asl_options['override_icon_bg_color']." !important;
+                    background-image: none !important;
+                    -webkit-background-image: none !important;
+                    -ms-background-image: none !important;
+                }
+                ";
+            }
+            if ( $asl_options['override_border'] == 1 ) {
+                self::$inline_css .= "
+                div.asl_m.asl_w {
+                    ".str_replace(';', ' !important;', $asl_options['override_border_style'])."
+                    box-shadow: none !important;
+                }
+                div.asl_m.asl_w .probox {border: none !important;}
+                ";
+            }
         }
 
         /**

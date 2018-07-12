@@ -42,8 +42,8 @@
 
     <div class='proinput'>
         <form autocomplete="off" title='Ajax serch form'>
-            <input title='Search input' type='search' class='orig' name='phrase' placeholder='<?php echo asl_icl_t( "Search bar placeholder text", w_isset_def($style['defaultsearchtext'], '') ); ?>' value='<?php echo apply_filters('asl_print_search_query', get_search_query()); ?>' autocomplete="off"/>
-            <input title='Autocomplete input, do not use this' type='text' class='autocomplete' name='phrase' value='' autocomplete="off"/>
+            <input aria-label='Search input' type='search' class='orig' name='phrase' placeholder='<?php echo asl_icl_t( "Search bar placeholder text", w_isset_def($style['defaultsearchtext'], '') ); ?>' value='<?php echo apply_filters('asl_print_search_query', get_search_query()); ?>' autocomplete="off"/>
+            <input aria-label='Autocomplete input, do not use this' type='text' class='autocomplete' name='phrase' value='' autocomplete="off"/>
             <span class='loading'></span>
             <input type='submit' value="Start search" style='width:0; height: 0; visibility: hidden;'>
         </form>
@@ -366,14 +366,11 @@ if ( function_exists('qtranxf_getLanguage') ) {
     "showdate": <?php echo ((isset($style['showdate']) && $style['showdate']!="")?$style['showdate']:"1"); ?>,
     "showdescription": <?php echo ((isset($style['showdescription']) && $style['showdescription']!="")?$style['showdescription']:"1"); ?>,
     "charcount":  <?php echo ((isset($style['charcount']) && $style['charcount']!="")?$style['charcount']:"3"); ?>,
-    "noresultstext": "<?php echo ((isset($style['noresultstext']) && $style['noresultstext']!="")?$style['noresultstext']:"3"); ?>",
-    "didyoumeantext": "<?php echo ((isset($style['didyoumeantext']) && $style['didyoumeantext']!="")?$style['didyoumeantext']:"3"); ?>",
     "defaultImage": "<?php echo w_isset_def($style['image_default'], "")==""?ASL_URL."img/default.jpg":$style['image_default']; ?>",
     "highlight": <?php echo $style['kw_highlight']; ?>,
     "highlightwholewords": <?php echo $style['kw_highlight_whole_words']; ?>,
     "scrollToResults": <?php echo w_isset_def($style['scroll_to_results'], 1); ?>,
     "resultareaclickable": <?php echo ((isset($style['resultareaclickable']) && $style['resultareaclickable']!="")?$style['resultareaclickable']:0); ?>,
-    "defaultsearchtext": "<?php echo ((isset($style['defaultsearchtext']) && $style['defaultsearchtext']!="")?$style['defaultsearchtext']:""); ?>",
     "autocomplete": {
         "enabled" : <?php echo w_isset_def($style['autocomplete'], 1); ?>,
         "lang" : "<?php echo w_isset_def($style['kw_google_lang'], 'en'); ?>"
