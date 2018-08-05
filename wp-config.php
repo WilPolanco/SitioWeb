@@ -26,7 +26,7 @@ define('DB_NAME', 'cloudvps_sitioEISI');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'elpr1et1ll0s');
+define('DB_PASSWORD', '');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
