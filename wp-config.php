@@ -23,10 +23,10 @@
 define('DB_NAME', 'cloudvps_sitioEISI');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'eisi_wpadmin');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'e1S1%8102');
+define('DB_PASSWORD', 'we1S1%8102p');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
