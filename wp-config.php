@@ -17,19 +17,22 @@
  *
  * @package WordPress
  */
-
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define ('WP_MEMORY_LIMIT', '256M');
 
 define('DB_NAME', 'cloudvps_sitioEISI');
-
 /** MySQL database username */
 define('DB_USER', 'eisi_wpadmin');
+<<<<<<< HEAD
 
 /** MySQL database password */
 define('DB_PASSWORD', 'we1S1%8102p');
 
+=======
+/** MySQL database password */
+define('DB_PASSWORD', 'we1S1%8102p');
+>>>>>>> 14d4b3ae2f90d38cd680bd22b45ed654dfce3b4d
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
 
