@@ -26,7 +26,7 @@ define('DB_NAME', 'cloudvps_sitioEISI');
 define('DB_USER', 'eisi_wpadmin');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'we1S1%8102p');
+define('DB_PASSWORD', 'We1S1%8102P');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -77,7 +77,8 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define( 'WP_TEMP_DIR', ABSPATH . 'wp-content/tmp/') ;
+/*define( 'WP_TEMP_DIR', ABSPATH . 'wp-content/uploads/') ;*/
+define('WP_TEMP_DIR',dirname(__FILE__).'/wp-content/uploads');
 define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
